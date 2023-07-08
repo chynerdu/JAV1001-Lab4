@@ -9,6 +9,7 @@ import com.example.scorekeeper.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
 
+//    Set default values
     private var activeHomeScore = 0
     private var activeAwayScore = 0
     private var totalHomeScore = 0
