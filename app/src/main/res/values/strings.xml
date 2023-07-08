@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">scorekeeper</string>
-    <string name="home_score">1</string>
+    <string name="home_score_text">0</string>
     <string name="home_team">Lakers</string>
     <string name="away_team">Chicago Bulls</string>
-    <string name="away_score">1</string>
+    <string name="away_score_text">0</string>
 </resources>

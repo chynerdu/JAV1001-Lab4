@@ -53,7 +53,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
             android:gravity="center"
             android:drawableLeft="@drawable/arrow_up"
             ></Button>
@@ -65,7 +64,7 @@
             android:padding="24dp"
             android:textSize="30dp"
             android:textFontWeight="700"
-            android:text="@string/home_score"/>
+            android:text="@string/home_score_text"/>
 
         <Button
             android:id="@+id/next_button_home"
@@ -117,7 +116,6 @@
             android:id="@+id/away_team"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:width="90dp"
             android:height="30dp"
             android:textSize="20dp"
@@ -131,7 +129,6 @@
             android:gravity="center"
             android:drawableLeft="@drawable/arrow_up"
             ></Button>
-
         <TextView
             android:id="@+id/away_score"
             android:layout_width="wrap_content"
@@ -139,7 +136,7 @@
             android:padding="24dp"
             android:textSize="30dp"
             android:textFontWeight="700"
-            android:text="@string/away_score"/>
+            android:text="@string/away_score_text"/>
 
         <Button
             android:id="@+id/next_button_away"
