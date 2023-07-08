@@ -13,6 +13,8 @@ class MainActivity : AppCompatActivity() {
     private var activeAwayScore = 0
     private var totalHomeScore = 0
     private var totalAwayScore = 0
+    private var awayTeam = R.string.away_team
+    private var homeTeam = R.string.home_team
 
     private lateinit var binding: ActivityMainBinding
 
@@ -25,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             activeHomeScore = 1
             Toast.makeText(
                 this,
-                "Point 1 selected for ${R.string.home_team}, now increase or decrease",
+                "Point 1 selected for ${getString(homeTeam)}, now increase or decrease total score",
                 Toast.LENGTH_SHORT
             ).show()
         }
@@ -34,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             activeHomeScore = 2
             Toast.makeText(
                 this,
-                "Point 2 selected for ${R.string.home_team}, now increase or decrease",
+                "Point 2 selected for ${getString(homeTeam)}, now increase or decrease total score",
                 Toast.LENGTH_SHORT
             ).show()
         }
@@ -43,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             activeHomeScore = 3
             Toast.makeText(
                 this,
-                "Point 3 selected for ${R.string.home_team}, now increase or decrease",
+                "Point 3 selected for ${getString(homeTeam)}, now increase or decrease total score",
                 Toast.LENGTH_SHORT
             ).show()
         }
@@ -52,37 +54,37 @@ class MainActivity : AppCompatActivity() {
             activeAwayScore = 1
             Toast.makeText(
                 this,
-                "Point 1 selected for ${R.string.away_team}, now increase or decrease",
+                "Point 1 selected for ${getString(awayTeam)}, now increase or decrease total score",
                 Toast.LENGTH_SHORT
             ).show()
         }
 
-        binding.awayScore1.setOnClickListener {
+        binding.awayScore2.setOnClickListener {
             activeAwayScore = 2
             Toast.makeText(
                 this,
-                "Point 2 selected for ${R.string.away_team}, now increase or decrease",
+                "Point 2 selected for ${getString(awayTeam)}, now increase or decrease total score",
                 Toast.LENGTH_SHORT
             ).show()
         }
 
-        binding.awayScore1.setOnClickListener {
+        binding.awayScore3.setOnClickListener {
             activeAwayScore = 3
             Toast.makeText(
                 this,
-                "Point 3 selected for ${R.string.away_team}, now increase or decrease",
+                "Point 3 selected for ${getString(awayTeam)}, now increase or decrease total score",
                 Toast.LENGTH_SHORT
             ).show()
         }
 
-        binding.prevButtonHome.setOnClickListener {
+        binding.nextButtonHome.setOnClickListener {
             if (activeHomeScore != 0) {
             if (totalHomeScore < activeHomeScore) {
                 totalHomeScore = 0;
             } else {
                 totalHomeScore -= activeHomeScore
             }
-            binding.homeScore.text = totalHomeScore.toString()
+                binding.homeScore.text = totalHomeScore.toString()
 //            Reset Active score
             activeHomeScore = 0
             } else {
@@ -95,7 +97,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        binding.nextButtonHome.setOnClickListener {
+        binding.prevButtonHome.setOnClickListener {
             if (activeHomeScore != 0) {
 
                 totalHomeScore += activeHomeScore
@@ -113,7 +115,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        binding.prevButtonAway.setOnClickListener {
+        binding.nextButtonAway.setOnClickListener {
             if (activeAwayScore != 0) {
                 if (totalAwayScore < activeAwayScore) {
                     totalAwayScore = 0;
@@ -134,9 +136,8 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        binding.nextButtonAway.setOnClickListener {
+        binding.prevButtonAway.setOnClickListener {
             if (activeAwayScore != 0) {
-
                 totalAwayScore += activeAwayScore
                 binding.awayScore.text = totalAwayScore.toString()
                 //            Reset Active score
@@ -150,6 +151,22 @@ class MainActivity : AppCompatActivity() {
                 ).show()
             }
 
+        }
+
+//        Refresh scores
+
+        binding.refresh.setOnClickListener {
+            activeHomeScore = 0
+            activeAwayScore = 0
+            totalHomeScore = 0
+            totalAwayScore = 0
+            binding.homeScore.text = totalHomeScore.toString()
+            binding.awayScore.text = totalAwayScore.toString()
+            Toast.makeText(
+                this,
+                "Scores refreshed",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 }
