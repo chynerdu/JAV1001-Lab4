@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="IconStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">#00FF00</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:layout_marginBottom">@android:color/transparent</item>
+    </style>
+
+    <style name="ButtonStyle">
+        <item name="android:textSize">30dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+    </style>
+</resources>
