@@ -2,6 +2,8 @@ package com.example.scorekeeper
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import com.example.scorekeeper.databinding.ActivityMainBinding
 
@@ -170,4 +172,30 @@ class MainActivity : AppCompatActivity() {
             ).show()
         }
     }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.mymenu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.action_settings -> {
+
+                true
+            }
+            R.id.action_about -> {
+                Toast.makeText(
+                    this,
+                    "Chinedu Uche \n JAV-1001",
+                    Toast.LENGTH_SHORT
+                ).show()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
 }
