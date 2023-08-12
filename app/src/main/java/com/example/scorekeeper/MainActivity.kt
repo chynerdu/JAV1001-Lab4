@@ -1,5 +1,7 @@
 package com.example.scorekeeper
 
+import  com.example.scorekeeper.R
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -24,7 +26,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+
+
+        val sharedPreferences = getPreferences(MODE_PRIVATE)
+        val score = sharedPreferences!!.getBoolean("saveScore", false)
+        val homeScore = sharedPreferences!!.getString("totalHomeScore", "0")
+        val awayScore = sharedPreferences!!.getString("totalAwayScore", "0")
         setContentView(binding.root)
+       if (score) {
+           binding.homeScore.text = homeScore
+           binding.awayScore.text = awayScore
+       }
 
         binding.homeScore1.setOnClickListener {
             activeHomeScore = 1
@@ -82,11 +94,17 @@ class MainActivity : AppCompatActivity() {
 
         binding.nextButtonHome.setOnClickListener {
             if (activeHomeScore != 0) {
+                val sharedPreferences = getPreferences(MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
             if (totalHomeScore < activeHomeScore) {
                 totalHomeScore = 0;
             } else {
                 totalHomeScore -= activeHomeScore
+
+
             }
+                editor.putString("totalHomeScore", totalHomeScore.toString())
+                editor.commit()
                 binding.homeScore.text = totalHomeScore.toString()
 //            Reset Active score
             activeHomeScore = 0
@@ -102,8 +120,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.prevButtonHome.setOnClickListener {
             if (activeHomeScore != 0) {
+                val sharedPreferences = getPreferences(MODE_PRIVATE)
 
                 totalHomeScore += activeHomeScore
+                val editor = sharedPreferences.edit()
+                editor.putString("totalHomeScore", totalHomeScore.toString())
+                editor.commit()
                 binding.homeScore.text = totalHomeScore.toString()
                 //            Reset Active score
                 activeHomeScore = 0
@@ -120,11 +142,17 @@ class MainActivity : AppCompatActivity() {
 
         binding.nextButtonAway.setOnClickListener {
             if (activeAwayScore != 0) {
+                val sharedPreferences = getPreferences(MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
                 if (totalAwayScore < activeAwayScore) {
                     totalAwayScore = 0;
+
+
                 } else {
                     totalAwayScore -= activeAwayScore
                 }
+                editor.putString("totalAwayScore", totalAwayScore.toString())
+                editor.commit()
                 binding.awayScore.text = totalAwayScore.toString()
 //            Reset Active score
                 activeAwayScore = 0
@@ -141,8 +169,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.prevButtonAway.setOnClickListener {
             if (activeAwayScore != 0) {
+                val sharedPreferences = getPreferences(MODE_PRIVATE)
                 totalAwayScore += activeAwayScore
                 binding.awayScore.text = totalAwayScore.toString()
+                val editor = sharedPreferences.edit()
+                editor.putString("totalAwayScore", totalAwayScore.toString())
+                editor.commit()
                 //            Reset Active score
                 activeAwayScore = 0
 
@@ -165,6 +197,11 @@ class MainActivity : AppCompatActivity() {
             totalAwayScore = 0
             binding.homeScore.text = totalHomeScore.toString()
             binding.awayScore.text = totalAwayScore.toString()
+            val sharedPreferences = getPreferences(MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putString("totalAwayScore", totalAwayScore.toString())
+            editor.putString("totalHomeScore", totalHomeScore.toString())
+            editor.commit()
             Toast.makeText(
                 this,
                 "Scores refreshed",
@@ -183,7 +220,8 @@ class MainActivity : AppCompatActivity() {
         // Handle item selection
         return when (item.itemId) {
             R.id.action_settings -> {
-
+                val intent = Intent(this@MainActivity, SettingsActivity::class.java)
+                startActivity(intent);
                 true
             }
             R.id.action_about -> {
