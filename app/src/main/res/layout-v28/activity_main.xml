@@ -3,8 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-
-
     android:orientation="vertical">
 
     <Button
@@ -34,77 +32,48 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-
             android:orientation="vertical">
             <TextView
                 android:id="@+id/home_team"
-                android:layout_width="wrap_content"
-                android:width="90dp"
-                android:layout_height="wrap_content"
+                style="@style/LabelStyle"
                 android:textSize="20dp"
                 android:textFontWeight="800"
                 android:text="@string/home_team"/>
 
             <Button
                 android:id="@+id/prev_button_home"
-                android:layout_width="match_parent"
-                android:background="@android:color/transparent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
+                style="@style/IconStyle"
                 android:drawableLeft="@drawable/arrow_up"
                 ></Button>
 
             <TextView
                 android:id="@+id/home_score"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="24dp"
-                android:textSize="30dp"
-                android:gravity="center"
-                android:textFontWeight="700"
+                style="@style/ScoreStyle"
                 android:text="@string/home_score_text"/>
-
             <Button
                 android:id="@+id/next_button_home"
-                android:layout_width="match_parent"
-                android:background="@android:color/transparent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
+                style="@style/IconStyle"
                 android:layout_marginBottom="20dp"
                 android:drawableRight="@drawable/arrow_down"
                 ></Button>
 
             <Button
+                style="@style/ButtonStyle"
                 android:id="@+id/home_score_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
                 android:text="1"
                 android:backgroundTint ="#F2BE22"
-                android:textSize="30dp"
                 ></Button>
             <Button
                 android:id="@+id/home_score_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
+                style="@style/ButtonStyle"
                 android:text="2"
                 android:backgroundTint ="#F29727"
-                android:textSize="30dp"
                 ></Button>
             <Button
+                style="@style/ButtonStyle"
                 android:id="@+id/home_score_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
                 android:text="3"
                 android:backgroundTint ="#F24C3D"
-                android:textSize="30dp"
                 ></Button>
         </LinearLayout>
 
@@ -114,10 +83,8 @@
             android:layout_marginLeft="20dp"
             android:orientation="vertical">
             <TextView
+                style="@style/LabelStyle"
                 android:id="@+id/away_team"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:width="90dp"
                 android:height="30dp"
                 android:textSize="20dp"
                 android:textFontWeight="700"
@@ -125,62 +92,40 @@
 
             <Button
                 android:id="@+id/prev_button_away"
-                android:layout_width="match_parent"
-                android:background="@android:color/transparent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
+                style="@style/IconStyle"
                 android:drawableLeft="@drawable/arrow_up"
                 ></Button>
             <TextView
                 android:id="@+id/away_score"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="24dp"
-                android:textSize="30dp"
+                style="@style/ScoreStyle"
                 android:textFontWeight="700"
-                android:gravity="center"
+
                 android:text="@string/away_score_text"/>
 
             <Button
                 android:id="@+id/next_button_away"
-                android:layout_width="match_parent"
-                android:background="@android:color/transparent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
+                style="@style/IconStyle"
                 android:layout_marginBottom="20dp"
                 android:drawableRight="@drawable/arrow_down"
                 ></Button>
             <Button
                 android:id="@+id/away_score_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
+                style="@style/ButtonStyle"
                 android:text="1"
                 android:backgroundTint ="#F2BE22"
-                android:textSize="30dp"
+
                 ></Button>
             <Button
                 android:id="@+id/away_score_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
+                style="@style/ButtonStyle"
                 android:text="2"
                 android:backgroundTint ="#F29727"
-                android:textSize="30dp"
                 ></Button>
             <Button
                 android:id="@+id/away_score_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
+                style="@style/ButtonStyle"
                 android:text="3"
                 android:backgroundTint ="#F24C3D"
-                android:textSize="30dp"
                 ></Button>
 
 
